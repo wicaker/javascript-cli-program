@@ -2,6 +2,7 @@ const program = require('commander');
 const webshot = require('webshot');
 const fs = require('fs')
 
+//Create 1 to 001 for example
 const pad = (number, length)=>{  
   var str = '' + number;
   while (str.length < length) {
@@ -11,8 +12,10 @@ const pad = (number, length)=>{
 }
 
 const screenshot = (toFormat, fromWeb) => {
-  let url = fromWeb.parent.rawArgs[3];
-  let format='';
+  let url = fromWeb.parent.rawArgs[3]; //catch of url web
+  let format=''; //the end format of images'screenshot
+
+  //looping to create formatName if file already exist
   for(let i=1 ;i<=Infinity ;i++){
     format = `screenshot-${pad(i, 3)}.${toFormat}`;
     try {
@@ -27,13 +30,14 @@ const screenshot = (toFormat, fromWeb) => {
     }
   }
   
-
+  //screenshot proccess
   webshot(url, format, function(err) {
     if(err){
       return console.log(err);
     }
     console.log('Image Screenshot Succesfully');
   });
+
 }
 
 program
