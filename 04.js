@@ -2,7 +2,12 @@ var program = require('commander');
 
 
 const obfuscate = input => {
-  console.log(input);
+  input= input.split('');
+  for(let i=0; i<input.length; i++){
+    let j=input[i];
+    input.splice(i,1,'&#'+j.charCodeAt()+';')
+  }
+  console.log(input.join(''));
 }
 
 program

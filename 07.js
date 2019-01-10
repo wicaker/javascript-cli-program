@@ -4,6 +4,7 @@ var os = require( 'os' );
 
 var networkInterfaces = os.networkInterfaces( );
 
+//salah, harusnya public bisa dilihat, bisa dengan scrpping html telkom
 program
   .command('ip-external')
   .action(()=>{

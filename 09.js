@@ -17,7 +17,7 @@ const convert = (from, to) => {
 }
 
 program
-  .command('random <file1> <file2>')
+  .command('convert <file1> <file2>')
   .action((file1, file2)=>{
     convert(file1, file2);
   });
